@@ -14,7 +14,7 @@ export const todoSlide = createSlice({
     getTodo: (state, action) => {
       state.data = [action.payload];
     },
-    removeTodo: (state, action) => {
+    removeTodo: (state) => {
       state.data = [];
     },
   }
