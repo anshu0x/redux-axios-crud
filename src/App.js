@@ -1,7 +1,7 @@
 import "./styles.css";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getTodoAsync,deleteTodoAsync,putTodoAsync, addTodoAsync, showTodo , removeTodo} from "./features/todoSlice";
+import { getTodoAsync,deleteTodoAsync,putTodoAsync, addTodoAsync, showTodo } from "./features/todoSlice";
 
 export default function App() {
   const todo = useSelector(showTodo);

@@ -5,7 +5,7 @@ const API_URL = "https://jsonplaceholder.typicode.com/todos";
 export const todoSlide = createSlice({
   name: "todo",
   initialState: {
-    data: []
+    data: [],
   },
   reducers: {
     addTodo: (state, action) => {
@@ -14,7 +14,7 @@ export const todoSlide = createSlice({
     getTodo: (state, action) => {
       state.data = [action.payload];
     },
-  }
+  },
 });
 
 export const putTodoAsync = (data) => async (dispatch) => {
@@ -56,6 +56,6 @@ export const addTodoAsync = (data) => async (dispatch) => {
   }
 };
 
-export const { addTodo, getTodo,removeTodo} = todoSlide.actions;
+export const { addTodo, getTodo, removeTodo } = todoSlide.actions;
 export const showTodo = (state) => state.todo.data;
 export default todoSlide.reducer;
