@@ -14,15 +14,31 @@ export const todoSlide = createSlice({
     getTodo: (state, action) => {
       state.data = [action.payload];
     },
-    removeTodo: (state) => {
-      state.data = [];
-    },
   }
 });
 
+export const putTodoAsync = (data) => async (dispatch) => {
+  try {
+    const response = await axios.put(`${API_URL}/${data}`);
+    dispatch(getTodo(response.data));
+    console.log(response.data);
+  } catch (err) {
+    throw new Error(err);
+  }
+};
+export const deleteTodoAsync = (data) => async (dispatch) => {
+  try {
+    const response = await axios.put(`${API_URL}/${data}`);
+    dispatch(getTodo(response.data));
+    console.log(response.data);
+  } catch (err) {
+    throw new Error(err);
+  }
+};
 export const getTodoAsync = (data) => async (dispatch) => {
   try {
     const response = await axios.get(`${API_URL}/${data}`);
+    console.log(response.data);
     dispatch(getTodo(response.data));
   } catch (err) {
     throw new Error(err);
@@ -33,8 +49,8 @@ export const addTodoAsync = (data) => async (dispatch) => {
   try {
     // console.log(data);
     const response = await axios.post(API_URL, data);
-    // console.log(response);
     dispatch(addTodo(response.data));
+    console.log(response.data);
   } catch (err) {
     throw new Error(err);
   }
